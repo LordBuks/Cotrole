@@ -320,7 +320,7 @@
             </h4>
             <div class="autorizacoes-grid">
               ${autorizacoes.map(auth => `
-                <div class="autorizacao-card ${auth.classe} ${!atleta.autorizacoes[auth.sigla] ? 'checked' : ''}" 
+                <div class="autorizacao-card ${auth.classe} ${atleta.autorizacoes[auth.sigla] ? 'checked' : ''}" 
                      onclick="toggleAutorizacao('${atleta.id}', '${auth.sigla}')">
                   <div class="autorizacao-icon">
                     <i class="${auth.icone}"></i>
@@ -328,11 +328,13 @@
                   <div class="autorizacao-title">${auth.titulo}</div>
                   <div class="autorizacao-description">${auth.descricao}</div>
                   <div class="checkbox-container">
-                    <div class="custom-checkbox"                      <input type="checkbox" id="${auth.sigla}_${atleta.id}" 
-                             ${!atleta.autorizacoes[auth.sigla] ? 'checked' : ''}
-                             onchange="atualizarAutorizacao(\'${atleta.id}\', \'${auth.sigla}\', this.checked)">                   </div>
+                    <div class="custom-checkbox">
+                      <input type="checkbox" id="${auth.sigla}_${atleta.id}" 
+                             ${atleta.autorizacoes[auth.sigla] ? 'checked' : ''}
+                             onchange="atualizarAutorizacao('${atleta.id}', '${auth.sigla}', this.checked)">
+                    </div>
                     <label class="checkbox-label" for="${auth.sigla}_${atleta.id}">
-                      ${!atleta.autorizacoes[auth.sigla] ? 'Pendente' : 'Autorizado'}
+                      ${atleta.autorizacoes[auth.sigla] ? 'Pendente' : 'Autorizado'}
                     </label>
                   </div>
                 </div>

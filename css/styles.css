@@ -334,7 +334,6 @@
       }
       
       .atleta-card {
-        page-break-after: always;
         border: none;
         box-shadow: none;
       }
